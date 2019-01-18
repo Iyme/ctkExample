@@ -5,8 +5,8 @@ QT       += core gui
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 #加载ctk库
-macx: LIBS += -L$$PWD/../libs/ -lCTKCore.0.1.0
-macx: LIBS += -L$$PWD/../libs/ -lCTKPluginFramework.0.1.0
+LIBS += -L$$PWD/../libs/ -lCTKCore
+LIBS += -L$$PWD/../libs/ -lCTKPluginFramework
 
 INCLUDEPATH += $$PWD/../inclues \
         += $$PWD/../includes/core \
