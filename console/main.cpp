@@ -18,7 +18,7 @@ void loadPlugins(QString path, ctkPluginContext* context, QList<QSharedPointer<c
         return;
 
     QStringList filters;
-    filters << "*.dylib";
+    filters << "*.dll" << "*.so" << "*.dylib";
     QDirIterator dir_iterator(path, filters,  QDir::Files | QDir::Writable,
                               QDirIterator::Subdirectories);
 
@@ -54,7 +54,9 @@ int main(int argc, char *argv[])
 
     a.setApplicationName("ctkExample");//给框架创建名称，Linux下没有这步会报错
 
-    ctkPluginFrameworkLauncher::addSearchPath("/Users/Shared/qt/ctkExample/libs");
+    QString libPath = QCoreApplication::applicationDirPath();
+
+    ctkPluginFrameworkLauncher::addSearchPath(libPath);
     ctkPluginFrameworkLauncher::start("org.commontk.eventadmin");
 
     ctkPluginFrameworkFactory factory;//插件工厂类
@@ -89,7 +91,7 @@ int main(int argc, char *argv[])
 
 
     ctkServiceReference ref =context->getServiceReference<iMainWindow>();
-    iMainWindow* mainWindow;
+    iMainWindow* mainWindow = nullptr;
     if(ref)
         mainWindow = context->getService<iMainWindow>(ref);
 

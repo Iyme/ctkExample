@@ -33,7 +33,7 @@ void MainWindowDlg::action_clicked()
     {
         //获取事件服务接口
         ctkServiceReference ref;
-        ctkEventAdmin* eventAdmin;
+        ctkEventAdmin* eventAdmin = nullptr;
         QString topic = action->statusTip();
 
         ref = m_context->getServiceReference<ctkEventAdmin>();

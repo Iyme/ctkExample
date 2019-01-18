@@ -17,8 +17,8 @@ DESTDIR = $$PWD/../bin
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 
-macx: LIBS += -L$$PWD/../libs/ -lCTKCore.0.1.0
-macx: LIBS += -L$$PWD/../libs/ -lCTKPluginFramework.0.1.0
+LIBS += -L$$PWD/../libs/ -lCTKCore
+LIBS += -L$$PWD/../libs/ -lCTKPluginFramework
 
 INCLUDEPATH += $$PWD/../inclues \
         += $$PWD/../includes/core \
